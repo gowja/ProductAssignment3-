@@ -26,6 +26,7 @@ export class ProductListComponent implements OnInit {
     console.log("delete"+data);
     alert("success");
     this.router.navigate(['/']);
+    this.ngOnInit();
   }
 
   ngOnInit(): void {

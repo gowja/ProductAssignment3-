@@ -40,6 +40,27 @@ app.post('/remove',function(req,res){
     ProductData.deleteOne({_id:prod})
     .then(function(){console.log("deleted")})
 })
+app.post('/edit',function(req,res){
+    res.header("Access-Control-Allow-Origin","*");
+    res.header('Access-Control-Allow-Methods: GET,POST,PATCH,PUT,DELETE,OPTIONS');
+    var prod={
+         pid:req.body.product.pid,        
+         pname:req.body.product.pname,
+         pcode:req.body.product.pcode,
+         pdate:req.body.product.pdate,
+         pdesc:req.body.product.pdesc,
+         pprice:req.body.product.pprice,
+         pstar:req.body.product.pstar,
+         purl:req.body.product.purl
+    }
+    console.log("edited price"+prod.pprice);
+   var update=ProductData.findOneAndUpdate(req.body.pcode,prod);
+   update.exec(function(err,data){
+       if(err) throw err;
+   })
+    console.log("edit item"+prod.pprice);
+})
+
 app.listen(2222,function(){
     console.log("listen to port : 2222");
 });

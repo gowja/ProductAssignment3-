@@ -32,7 +32,7 @@
                     <td>{{product.releaseDate}}</td>
                     <td>{{product.price}}</td>
                     <td>{{product.starRating}}</td>
-                    <td><button class="btn btn-primary">Edit</button></td>
+                    <td><a [routerLink]="['/pedit',product.id,product.productName,product.productCode,product.releaseDate,product.desc,product.price,product.starRating,product.imageUrl]"><button class="btn btn-primary" (click)="editProduct(product)">Edit</button></a></td>
                     <td><button class="btn btn-primary" (click)="deleteProduct(product._id)">Delete</button></td>
                 </tr>
             </tbody>
